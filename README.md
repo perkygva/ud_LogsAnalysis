@@ -16,11 +16,11 @@ This is the first project for Udacity's _The Backend: Databases & Applications_ 
 4. Download the data [here](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)
 
 ### Starting up the Virtual machine
-1. Open terminal and go to the folder where you saved the fullstack repository.
+1. Open terminal and go to the folder where you saved the fullstack repository then `cd vagrant`.
 2. Launch Vagrant and then log into the machine:
 `vagrant up`
 `vagrant ssh`
-3. cd into the vagrant volder with `\vagrant`
+3. cd into the vagrant volder with `/vagrant`
 4. Set up the database then load connect to the database:
 `psql -d news -f newsdata.sql`
 `psql -d news`
