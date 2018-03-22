@@ -47,10 +47,10 @@ def query2():
     and log.path like concat('%', articles.slug)
     and log.status like '%200%'
     group by authors.name
-    order by views desc limit 3;
+    order by views desc;
     """
     results = get_query(query)
-    print("\nThe top 3 authors viewed are:")
+    print("\nThe top authors viewed are:")
     count = 1
     for r in results:
         print(str(count) + ": " + r[0] + " -- " + str(r[1]) + " views")
