@@ -4,6 +4,7 @@
 import psycopg2
 DBNAME = "news"
 
+
 def get_query(query):
     """Connect ot the database."""
     try:
@@ -17,7 +18,7 @@ def get_query(query):
         print("Database not found! Check dbname")
 
 
-#Queries
+# Queries
 def query1():
     """ Run query1: What are the most popular 3 articles of all time?"""
     query = """
@@ -37,7 +38,8 @@ def query1():
 
 
 # Query2: Who are the most popular article authors of all time
-# name from authors, count path from logs and match article.author with author.id to match path
+# name from authors, count path from logs and match article.author
+# with author.id to match path
 def query2():
     """Run query2: Who are the most popular article authors of all time"""
     query = """
@@ -55,14 +57,12 @@ def query2():
     for r in results:
         print(str(count) + ": " + r[0] + " -- " + str(r[1]) + " views")
         count += 1
-        #print(str(id) + author + view)
 
 
 # Query 3: On which days did more than 1% or requests lead to errors
 # log status code not equal to 200 or equal to 404
 def query3():
     """Query 3: On which days did more than 1% or requests lead to errors"""
-
     query = """
     select date(time), round(100.0 * sum(case log.status when '200 OK'
     then 0 else 1 end)/count(log.status), 2) as pct_error from log
